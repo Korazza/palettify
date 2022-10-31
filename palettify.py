@@ -19,7 +19,7 @@ def get_view(colorcube, image):
 def main():
     args = sys.argv
     if len(args) == 1:
-        print(f"Usage: {args[0]} <imagepath>")
+        print(f"Usage: {args[0]} <image path>")
         exit(1)
 
     image_path = args[1]
