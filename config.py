@@ -1,0 +1,3 @@
+PALETTES_DIR = "palettes"
+COLORS_EXTENSION = ".txt"
+COLORCUBES_EXTENSION = ".npz"
