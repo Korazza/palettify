@@ -11,6 +11,6 @@ A tool to match the colors of an image to a palette
 |                           |                                        |
 | :-----------------------: | :------------------------------------: |
 |          Normal           |          Catppuccin Macchiato          |
-| ![](examples/example.png) | ![](examples/catppuccin-macchiato.png) |
+| ![](examples/normal.png)  | ![](examples/catppuccin-macchiato.png) |
 |          Gruvbox          |                Dracula                 |
 | ![](examples/gruvbox.png) |       ![](examples/dracula.png)        |
