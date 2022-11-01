@@ -8,9 +8,9 @@ A tool to match the colors of an image to a palette
 
 ## Example
 
-|                          |                                       |
-| :----------------------: | :-----------------------------------: |
-|          Image           |         Catppuccin Macchiato          |
-|  ![](example.png 'asd')  | ![](example-catppuccin-macchiato.png) |
-|         Gruvbox          |                Dracula                |
-| ![](example-gruvbox.png) |       ![](example-dracula.png)        |
+|                           |                                        |
+| :-----------------------: | :------------------------------------: |
+|          Normal           |          Catppuccin Macchiato          |
+| ![](examples/example.png) | ![](examples/catppuccin-macchiato.png) |
+|          Gruvbox          |                Dracula                 |
+| ![](examples/gruvbox.png) |       ![](examples/dracula.png)        |
