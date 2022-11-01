@@ -1,18 +1,16 @@
 import os
 import sys
-import numpy as np
-from PIL import Image
 import time
+from PIL import Image
+import numpy as np
 
 from palettes_loader import load_palettes
 
 
-def get_view(colorcube, image):
+def palettify_image(colorcube, image):
     shape = image.shape
     indices = image.reshape((-1, shape[2]))
-    # pass image colors and retrieve corresponding palette color
     new_image = colorcube[indices[:, 0], indices[:, 1], indices[:, 2]]
-
     return new_image.reshape(shape[0], shape[1], 3).astype(np.uint8)
 
 
@@ -47,7 +45,7 @@ def main():
 
     colorcube_precalculated = np.load(palette.colorcubes_path)["color_cube"]
 
-    result = get_view(colorcube_precalculated, image)
+    result = palettify_image(colorcube_precalculated, image)
 
     output = Image.fromarray(result)
     output.save(f"output.png")
