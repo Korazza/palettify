@@ -11,3 +11,13 @@ repos:
     rev: 22.10.0
     hooks:
       - id: black
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest tests/ -m 'not integration and not reporting_api'
+        language: system
+        pass_filenames: false
+        types: [python]
+        stages: [commit]
