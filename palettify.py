@@ -4,14 +4,17 @@ import time
 from PIL import Image
 import numpy as np
 
-from palettes_loader import load_palettes
+import palette
+import palettes_loader
 
 
-def palettify_image(colorcube, image):
+def palettify_image(palette: palette.Palette, image: Image.Image) -> np.ndarray:
+    image = np.asarray(image)
+    colorcube = palette.load_colorcube()
     shape = image.shape
     indices = image.reshape((-1, shape[2]))
-    new_image = colorcube[indices[:, 0], indices[:, 1], indices[:, 2]]
-    return new_image.reshape(shape[0], shape[1], 3).astype(np.uint8)
+    output_image = colorcube[indices[:, 0], indices[:, 1], indices[:, 2]]
+    return output_image.reshape(shape[0], shape[1], 3).astype(np.uint8)
 
 
 def main():
@@ -25,12 +28,13 @@ def main():
         print(f'Image "{image_path}" does not exist')
         exit(1)
 
-    palettes = load_palettes()
+    palettes = palettes_loader.load_palettes()
 
     print("Choose a palette")
     for i, palette in enumerate(palettes):
         print(f"{f'({i+1})'.rjust(7)} {palette.name}")
     palette_index = int(input("\n>> ")) - 1
+    print()
 
     if palette_index < 0 or palette_index >= len(palettes):
         print(f"Palette {palette_index+1} not in range {1}-{len(palettes)}")
@@ -39,18 +43,13 @@ def main():
     start = time.time()
 
     palette = palettes[palette_index]
-
     image = Image.open(image_path)
-    image = np.asarray(image)
 
-    colorcube_precalculated = np.load(palette.colorcubes_path)["color_cube"]
+    image_result = Image.fromarray(palettify_image(palette, image))
 
-    result = palettify_image(colorcube_precalculated, image)
+    image_result.save(f"output.png")
 
-    output = Image.fromarray(result)
-    output.save(f"output.png")
-
-    print(f"\n[{palette.name}] Done in {round((time.time() - start), 3)}s")
+    palette.log(f"Done in {(time.time() - start):.3f}s")
 
 
 if __name__ == "__main__":
