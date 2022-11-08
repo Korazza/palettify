@@ -1,72 +1,91 @@
 import os
 import numpy as np
 
-from color import Color
-from config import PALETTES_DIR, COLORS_EXTENSION, COLORCUBES_EXTENSION
+import config
+import color
 
 
 class Palette:
     def __init__(self, path: str):
         self.name = (
-            path.removesuffix(COLORS_EXTENSION)
-            .removeprefix(PALETTES_DIR)
-            .removeprefix(os.sep)
+            path.replace(f"{config.PALETTES_DIR}{os.sep}", "")
             .replace(os.sep, " ")
             .replace("_", " ")
+            .replace(config.COLORS_EXTENSION, "")
         )
         self.colors_path = path
         self.dir = os.path.dirname(path)
-        self.colorcubes_path = self.colors_path.replace(
-            COLORS_EXTENSION, COLORCUBES_EXTENSION
+        self.colorcube_path = self.colors_path.replace(
+            config.COLORS_EXTENSION, config.COLORCUBES_EXTENSION
         )
-        # load colors
-        self.load_colors()
-
-        # calculate color cube if file not found
-        if not os.path.exists(self.colorcubes_path):
-            self.calculate_colorcube()
+        self.size = 0
+        self.colors = np.array([])
+        self.colors_rgb = np.array([])
+        self.colors_hex = np.array([])
 
     def load_colors(self):
-        colors_rgb = []
-        with open(self.colors_path) as palette_file:
-            for num, line in enumerate(palette_file, 1):
-                line = line.rstrip()
-                if not line.removeprefix("#").isalnum():
+        colors = []
+        with open(self.colors_path) as palette_colors_file:
+            for num, hex in enumerate(palette_colors_file, 1):
+                hex = hex.rstrip()
+                if not hex.startswith("#") or len(hex) != 7:
                     raise Exception(
-                        f'[{self.name}] Error in {self.colors_path}\nline {num} | "{line}"'
+                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Colors must be in format "#000000" (got "{hex}")'
                     )
-                colors_rgb.append(Color(line).rgb)
-        self.colors_rgb = np.array(colors_rgb)
+                if not hex.removeprefix("#").isalnum():
+                    raise Exception(
+                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Invalid color "{hex}"'
+                    )
+                colors.append(color.Color(hex=hex))
+        self.size = len(colors)
+        self.colors: np.ndarray[color.Color] = np.array(colors)
+        self.colors_hex: np.ndarray[str] = np.array(
+            [color.hex for color in self.colors]
+        )
+        self.colors_rgb: np.ndarray[np.ndarray[int]] = np.array(
+            [color.rgb for color in self.colors]
+        )
 
-    def calculate_colorcube(self):
-        print(f"[{self.name}] Color cube not cached")
-        colorcube_precalculated = np.zeros(shape=[256, 256, 256, 3])
-        for i in range(256):
-            print(
-                f"\r[{self.name}] Processing color cube {('.' * (i % 4)).ljust(3)} {str(round(100 * i / 256, 2)).rjust(6)}%",
-                end="",
+    def get_nearest_color(self, color: color.Color) -> color.Color:
+        return self.colors[
+            np.argmin(
+                np.sqrt(
+                    np.sum(
+                        ((self.colors_rgb) - color.rgb) ** 2,
+                        axis=1,
+                    )
+                )
             )
-            for j in range(256):
-                for k in range(256):
-                    index = np.argmin(
-                        np.sqrt(
-                            np.sum(
-                                ((self.colors_rgb) - np.array([i, j, k])) ** 2,
-                                axis=1,
-                            )
-                        )
-                    )
-                    colorcube_precalculated[i, j, k] = self.colors_rgb[index]
-        if not os.path.exists(self.dir):
-            os.mkdir(self.dir)
-        np.savez_compressed(self.colorcubes_path, color_cube=colorcube_precalculated)
-        print()
+        ]
 
-    def get_hex_colors(self) -> list[str]:
-        return [color.hex for color in self.colors]
+    def calculte_colorcube(self, begin: int = 0, end: int = 255) -> np.ndarray[int]:
+        size = end - begin + 1
+        colorcube = np.zeros(shape=[size, size, size, 3], dtype=int)
+        for i, r in enumerate(range(begin, end + 1)):
+            for j, g in enumerate(range(begin, end + 1)):
+                for k, b in enumerate(range(begin, end + 1)):
+                    colorcube[i, j, k] = self.get_nearest_color(
+                        color.Color(rgb=[r, g, b])
+                    ).rgb
+        return colorcube
 
-    def get_rgb_colors(self) -> list[list[int, int, int]]:
-        return [color.rgb for color in self.colors]
+    def cache_colorcube(self) -> bool:
+        if os.path.exists(self.colorcube_path):
+            self.log("Color cube cached")
+            return False
+        self.log("Color cube not cached")
+        self.log("Calculating color cube...")
+        colorcube = self.calculte_colorcube()
+        self.log("Color cube calculated")
+        np.savez_compressed(self.colorcube_path, color_cube=colorcube)
+        self.log("Color cube cached")
+        return True
+
+    def load_colorcube(self) -> np.ndarray:
+        return np.load(self.colorcube_path)["color_cube"]
+
+    def log(self, *values: object):
+        print(f"[{self.name}]", *values)
 
     def __str__(self) -> str:
-        return f"<Palette {self.name} ({len(self.colors)} colors)>"
+        return f"<Palette {self.name} ({self.size} colors)>"
