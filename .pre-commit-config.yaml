@@ -16,7 +16,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: pytest tests/ -m 'not integration and not reporting_api'
+        entry: pytest tests/'
         language: system
         pass_filenames: false
         types: [python]
