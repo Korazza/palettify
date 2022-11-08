@@ -1,3 +1,7 @@
 __pycache__
+.pytest_cache
+.coverage
+htmlcov
 *.npz
+!tests/*.npz
 output.png
