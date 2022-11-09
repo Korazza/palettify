@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: "Install dependencies"
+          command: "pipenv install"
+      - run:
+          name: "Test"
+          command: "pipenv run pytest tests/"
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - test
