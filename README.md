@@ -1,8 +1,10 @@
 # palettify
 
-![Coveralls](https://img.shields.io/coveralls/github/Korazza/palettify?color=%2314b8a6&style=for-the-badge)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/numpy?logo=numpy&style=for-the-badge)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/pillow?logo=pillow&style=for-the-badge)
+<p align="center">
+<img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%284cc16&style=for-the-badge">
+<img alt="numpy dependency version" src="https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/numpy?color=%236366f1&logo=numpy&style=for-the-badge">
+<img alt="pillow dependency version" src="https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/pillow?color=%236366f1&logo=pillow&style=for-the-badge">
+</p>
 
 |                           |                                        |
 | :-----------------------: | :------------------------------------: |
