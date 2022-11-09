@@ -1,5 +1,9 @@
 # palettify
 
+![Coveralls](https://img.shields.io/coveralls/github/Korazza/palettify?color=%2314b8a6&style=for-the-badge)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/numpy?logo=numpy&style=for-the-badge)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/pillow?logo=pillow&style=for-the-badge)
+
 |                           |                                        |
 | :-----------------------: | :------------------------------------: |
 |          Normal           |          Catppuccin Macchiato          |
@@ -24,7 +28,7 @@ pip install -r requirements.txt
 ### pipenv
 
 ```
-pipenv install -r requirements.txt
+pipenv install
 ```
 
 ## Usage
