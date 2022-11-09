@@ -3,8 +3,6 @@
 <p align="center">
 <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/Korazza/palettify?color=%233b82f6&style=for-the-badge">
 <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%284cc16&style=for-the-badge">
-<img alt="numpy dependency version" src="https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/numpy?color=%236366f1&logo=numpy&style=for-the-badge">
-<img alt="pillow dependency version" src="https://img.shields.io/github/pipenv/locked/dependency-version/Korazza/palettify/pillow?color=%236366f1&logo=pillow&style=for-the-badge">
 </p>
 
 |                           |                                        |
