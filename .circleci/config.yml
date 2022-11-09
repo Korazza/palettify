@@ -11,7 +11,7 @@ jobs:
           command: "pipenv install"
       - run:
           name: "Test"
-          command: "pytest tests/"
+          command: "pipenv run pytest tests/"
 
 workflows:
   say-hello-workflow:
