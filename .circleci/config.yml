@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install dependencies"
-          command: "pipenv install"
+          name: 'Install dependencies'
+          command: 'pipenv install'
       - run:
-          name: "Test"
-          command: "pipenv run pytest tests/"
+          name: 'Test'
+          command: 'pipenv run pytest tests/'
 
 workflows:
-  say-hello-workflow:
+  test-workflow:
     jobs:
       - test
