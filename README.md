@@ -2,7 +2,8 @@
 
 <p align="center">
 <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/Korazza/palettify?color=%233b82f6&style=for-the-badge">
-<img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%284cc16&style=for-the-badge">
+<img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Korazza/palettify/main?color=%2384cc16&label=Test&logo=circleci&style=for-the-badge">
+<img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2384cc16&style=for-the-badge">
 </p>
 
 |                           |                                        |
