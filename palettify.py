@@ -4,11 +4,11 @@ import time
 from PIL import Image
 import numpy as np
 
-import palette
+from palette import Palette
 import palettes_loader
 
 
-def palettify_image(palette: palette.Palette, image: Image.Image) -> np.ndarray:
+def palettify_image(palette: Palette, image: Image.Image) -> np.ndarray:
     image = np.asarray(image)
     colorcube = palette.load_colorcube()
     shape = image.shape
