@@ -49,7 +49,7 @@ class Palette:
             )
         ]
 
-    def calculte_colorcube(self, begin: int = 0, end: int = 255) -> np.ndarray[int]:
+    def calculte_colorcube(self, begin=0, end=255) -> np.ndarray[int]:
         size = end - begin + 1
         colorcube = np.zeros(shape=[size, size, size, 3], dtype=int)
         for i, r in enumerate(range(begin, end + 1)):
