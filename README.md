@@ -25,25 +25,25 @@ A tool to match the colors of an image to a palette
 
 ## Installation
 
-```
+```sh
 git clone https://github.com/Korazza/palettify.git
 ```
 
 ### pip
 
-```
+```sh
 pip install -r requirements.txt
 ```
 
 ### pipenv
 
-```
+```sh
 pipenv sync
 ```
 
 ## Usage
 
-```
+```sh
 python palettify <image path>
 ```
 

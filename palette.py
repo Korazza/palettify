@@ -26,8 +26,8 @@ class Palette:
     def load_colors(self):
         colors = []
         with open(self.colors_path) as palette_colors_file:
-            for num, hex in enumerate(palette_colors_file, 1):
-                hex = hex.rstrip()
+            for num, _hex in enumerate(palette_colors_file, 1):
+                hex = _hex.rstrip()
                 if not hex.startswith("#") or len(hex) != 7:
                     raise Exception(
                         f'[{self.name}] Error in "{self.colors_path}" at line {num}: Colors must be in format "#000000" (got "{hex}")'
