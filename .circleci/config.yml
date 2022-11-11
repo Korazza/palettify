@@ -13,10 +13,13 @@ jobs:
           name: 'Test'
           command: |
             mkdir test-results
-            pipenv run pytest --junitxml=test-results/junit.xml --cov=. --cov-report=xml tests/
+            pipenv run pytest --junitxml=test-results/junit.xml --cov=. --cov-report=xml:cobertura.xml tests/
       - run:
           name: 'Coveralls'
           command: 'pipenv run coveralls'
+      - run:
+          name: 'Codacy Coverage Report'
+          command: 'bash <(curl -Ls https://coverage.codacy.com/get.sh)'
       - store_test_results:
           path: test-results
 
