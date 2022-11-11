@@ -21,7 +21,7 @@ class Palette:
 
     def load_colors(self):
         colors = []
-        with open(self.colors_path, "rt") as palette_colors_file:
+        with open(self.colors_path, "rt", encoding="UTF-8") as palette_colors_file:
             for num, _hex in enumerate(palette_colors_file, 1):
                 color_hex = _hex.rstrip()
                 if not color_hex.startswith("#") or len(color_hex) != 7:
