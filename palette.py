@@ -14,7 +14,6 @@ class Palette:
             .replace(config.COLORS_EXTENSION, "")
         )
         self.colors_path = path
-        self.dir = os.path.dirname(path)
         self.colorcube_path = self.colors_path.replace(
             config.COLORS_EXTENSION, config.COLORCUBES_EXTENSION
         )
@@ -39,9 +38,6 @@ class Palette:
                 colors.append(color.Color(hex=color_hex))
         self.size = len(colors)
         self.colors: np.ndarray[color.Color] = np.array(colors)
-        self.colors_hex: np.ndarray[str] = np.array(
-            [color.hex for color in self.colors]
-        )
         self.colors_rgb: np.ndarray[np.ndarray[int]] = np.array(
             [color.rgb for color in self.colors]
         )

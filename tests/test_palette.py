@@ -28,7 +28,6 @@ def test_palette(monkeypatch: pytest.MonkeyPatch):
     assert test_palette.name == "test palette"
     assert test_palette.colors_path == TEST_PALETTE_COLORS_PATH
     assert test_palette.colorcube_path == TEST_PALETTE_COLORCUBE_PATH
-    assert test_palette.dir == TESTS_DIR
     assert len(test_palette.colors_rgb) == 0
 
 
@@ -41,7 +40,6 @@ def test_palette_load_colors(monkeypatch: pytest.MonkeyPatch):
 
     assert test_palette.size == 2
     assert str(test_palette) == "<Palette test palette (2 colors)>"
-    assert (test_palette.colors_hex == ["#000000", "#ffffff"]).all()
     assert (test_palette.colors_rgb == [[0, 0, 0], [255, 255, 255]]).all()
 
 
@@ -100,12 +98,14 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     test_palette = palette.Palette(TEST_PALETTE_COLORS_PATH)
     test_palette.load_colors()
 
-    begin = 0
-    end = 1
-    size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin, end)
+    colorcube_begin = 0
+    colorcube_end = 1
+    colorcube_size = colorcube_end - colorcube_begin + 1
+    colorcube = test_palette.calculte_colorcube(
+        begin=colorcube_begin, end=colorcube_end
+    )
 
-    assert colorcube.size == 3 * size**3
+    assert colorcube.size == 3 * colorcube_size**3
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
     assert (colorcube[0][0][1] == [0, 0, 0]).all()
     assert (colorcube[0][1][0] == [0, 0, 0]).all()
@@ -115,12 +115,13 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     assert (colorcube[1][1][0] == [0, 0, 0]).all()
     assert (colorcube[1][1][1] == [0, 0, 0]).all()
 
-    begin = 127
-    end = 128
-    size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin, end)
+    colorcube_begin = 127
+    colorcube_end = 128
+    colorcube_size = colorcube_end - colorcube_begin + 1
+    colorcube = test_palette.calculte_colorcube(
+        begin=colorcube_begin, end=colorcube_end
+    )
 
-    assert colorcube.size == 3 * size**3
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
     assert (colorcube[0][0][1] == [0, 0, 0]).all()
     assert (colorcube[0][1][0] == [0, 0, 0]).all()
@@ -130,12 +131,13 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     assert (colorcube[1][1][0] == [255, 255, 255]).all()
     assert (colorcube[1][1][1] == [255, 255, 255]).all()
 
-    begin = 254
-    end = 255
-    size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin, end)
+    colorcube_begin = 254
+    colorcube_end = 255
+    colorcube_size = colorcube_end - colorcube_begin + 1
+    colorcube = test_palette.calculte_colorcube(
+        begin=colorcube_begin, end=colorcube_end
+    )
 
-    assert colorcube.size == 3 * size**3
     assert (colorcube[0][0][0] == [255, 255, 255]).all()
     assert (colorcube[0][0][1] == [255, 255, 255]).all()
     assert (colorcube[0][1][0] == [255, 255, 255]).all()
