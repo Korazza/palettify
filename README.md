@@ -1,4 +1,4 @@
-<p style="display: flex; width: 100%; justify-content: center; gap: 1em;">
+<p align="center">
   <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/Korazza/palettify?color=%233b82f6&logo=python&style=flat-square">
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Korazza/palettify/main?color=%2365a30d&label=test&logo=circleci&style=flat-square">
   <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&logo=coveralls&style=flat-square">
