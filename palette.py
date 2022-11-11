@@ -49,7 +49,7 @@ class Palette:
             )
         ]
 
-    def calculte_colorcube(self, begin=0, end=255) -> np.ndarray[int]:
+    def calculte_colorcube(self, begin=0, end=255) -> list[int]:
         size = end - begin + 1
         colorcube = np.zeros(shape=[size, size, size, 3], dtype=int)
         for i, r in enumerate(range(begin, end + 1)):
@@ -66,7 +66,7 @@ class Palette:
             return False
         self.log("Color cube not cached")
         self.log("Calculating color cube...")
-        colorcube = self.calculte_colorcube()
+        colorcube = np.array(self.calculte_colorcube())
         self.log("Color cube calculated")
         np.savez_compressed(self.colorcube_path, color_cube=colorcube)
         self.log("Color cube cached")
