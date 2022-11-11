@@ -1,9 +1,9 @@
 import builtins
 import os
+
 from PIL import Image
 import numpy as np
 import pytest
-
 
 import config
 import palette

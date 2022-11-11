@@ -1,6 +1,6 @@
 import os
-import pytest
 
+import pytest
 
 import config
 import palettes_loader
