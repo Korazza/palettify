@@ -1,9 +1,22 @@
+"""Module for the Color dataclass"""
 from dataclasses import dataclass, field
 
 
 @dataclass
 class Color:
-    """Class for storing a color"""
+    """A class used to store a color
+
+    This dataclass is used to represent a color. It has both hex and rgb values of the color, and
+    they default to black. To get a color, the constructor only needs one parameter between
+    `hex` and `rgb`, the other one is calculated automatically
+
+    Attributes
+    ----------
+    hex : str, optional
+        The hex string of the color (default is "#000000")
+    rgb : list[int], optional
+        The RGB value of the color (default is [0, 0, 0])
+    """
 
     hex: str = field(default_factory=str)
     rgb: list[int] = field(default_factory=list)

@@ -1,3 +1,5 @@
+"""Module for the load_palettes function"""
+
 import os
 
 import config
@@ -5,6 +7,19 @@ from palette import Palette
 
 
 def load_palettes(path: str = config.PALETTES_DIR) -> list[Palette]:
+    """
+    Load all the palettes found in the `path` directory
+
+    Parameters
+    ----------
+    path : str, optional
+        The color from which to get the nearest palette color (default is config.PALETTES_DIR)
+
+    Returns
+    -------
+    list[Palette]
+        The nearest palette color to from_color
+    """
     palettes: list[Palette] = []
     for palette_file in os.listdir(path):
         palette_path = os.path.join(path, palette_file)

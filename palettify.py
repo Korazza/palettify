@@ -1,15 +1,35 @@
+"""
+palettify
+---------
+A tool to match the colors of an image to a palette
+"""
 import os
 import sys
 import time
-from PIL import Image
-import numpy as np
 
-from palette import Palette
+import numpy as np
+from PIL import Image
+
 import config
 import palettes_loader
+from palette import Palette
 
 
 def palettify_image(palette: Palette, image: Image.Image) -> np.ndarray:
+    """Get an image processed with the `palette` colors
+
+    Parameters
+    ----------
+    palette : Palette
+        The palette choosen to process the image
+    image : Image
+        The image to process
+
+    Returns
+    -------
+    ndarray
+        The processed image as a numpy ndarray
+    """
     palette.load_colors()
     palette.cache_colorcube()
     image = np.asarray(image)
@@ -21,6 +41,15 @@ def palettify_image(palette: Palette, image: Image.Image) -> np.ndarray:
 
 
 def main(args: list[str], palettes_path: str = config.PALETTES_DIR):
+    """The main function of palettify
+
+    Parameters
+    ----------
+    args : list[str]
+        The args for the program
+    palettes_path : str, optional
+        The path to directory from which to load the palettes (default is config.PALETTES_DIR)
+    """
     if len(args) <= 0 or len(args) >= 2:
         print("Usage: palettify.py <image path>")
         sys.exit(1)
