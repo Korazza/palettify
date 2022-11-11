@@ -1,12 +1,11 @@
 import os
+
 import numpy as np
 import pytest
 
-
+import color
 import config
 import palette
-import color
-
 
 SEP = "/"
 TESTS_DIR = "tests"
@@ -19,7 +18,7 @@ TEST_PALETTE_WRONG_1_COLORS_PATH = f"{TESTS_DIR}/test_palette_wrong_1.txt"
 TEST_PALETTE_WRONG_2_COLORS_PATH = f"{TESTS_DIR}/test_palette_wrong_2.txt"
 
 
-def test_palette(monkeypatch: pytest.MonkeyPatch):
+def test_palette_init(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setattr(os, "sep", SEP)
     monkeypatch.setattr(config, "PALETTES_DIR", TESTS_DIR)
 
@@ -99,14 +98,8 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     test_palette = palette.Palette(TEST_PALETTE_COLORS_PATH)
     test_palette.load_colors()
 
-    colorcube_begin = 0
-    colorcube_end = 1
-    colorcube_size = colorcube_end - colorcube_begin + 1
-    colorcube = test_palette.calculte_colorcube(
-        begin=colorcube_begin, end=colorcube_end
-    )
-
-    assert colorcube.size == 3 * colorcube_size**3
+    colorcube = np.array(test_palette.calculte_colorcube(begin=0, end=1))
+    assert colorcube.size == 24
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
     assert (colorcube[0][0][1] == [0, 0, 0]).all()
     assert (colorcube[0][1][0] == [0, 0, 0]).all()
@@ -116,13 +109,7 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     assert (colorcube[1][1][0] == [0, 0, 0]).all()
     assert (colorcube[1][1][1] == [0, 0, 0]).all()
 
-    colorcube_begin = 127
-    colorcube_end = 128
-    colorcube_size = colorcube_end - colorcube_begin + 1
-    colorcube = test_palette.calculte_colorcube(
-        begin=colorcube_begin, end=colorcube_end
-    )
-
+    colorcube = np.array(test_palette.calculte_colorcube(begin=127, end=128))
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
     assert (colorcube[0][0][1] == [0, 0, 0]).all()
     assert (colorcube[0][1][0] == [0, 0, 0]).all()
@@ -132,13 +119,7 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     assert (colorcube[1][1][0] == [255, 255, 255]).all()
     assert (colorcube[1][1][1] == [255, 255, 255]).all()
 
-    colorcube_begin = 254
-    colorcube_end = 255
-    colorcube_size = colorcube_end - colorcube_begin + 1
-    colorcube = test_palette.calculte_colorcube(
-        begin=colorcube_begin, end=colorcube_end
-    )
-
+    colorcube = np.array(test_palette.calculte_colorcube(begin=254, end=255))
     assert (colorcube[0][0][0] == [255, 255, 255]).all()
     assert (colorcube[0][0][1] == [255, 255, 255]).all()
     assert (colorcube[0][1][0] == [255, 255, 255]).all()
