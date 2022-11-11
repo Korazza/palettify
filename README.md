@@ -1,8 +1,8 @@
 <p align="center">
-  <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/Korazza/palettify?color=%233b82f6&logo=python&style=flat">
-  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Korazza/palettify/main?color=%2365a30d&label=test&logo=circleci&style=flat">
-  <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&logo=coveralls&style=flat">
-  <img alt="Codacy branch grade" src="https://img.shields.io/codacy/grade/0a0cccad8d79414d88671d85ed98da06/main?color=%237c3aed&logo=codacy&style=flat">
+  <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/Korazza/palettify?color=%233b82f6&logo=python&style=flat-square">
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Korazza/palettify/main?color=%2365a30d&label=test&logo=circleci&style=flat-square">
+  <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&logo=coveralls&style=flat-square">
+  <img alt="Codacy branch grade" src="https://img.shields.io/codacy/grade/0a0cccad8d79414d88671d85ed98da06/main?color=%237c3aed&logo=codacy&style=flat-square">
 </p>
 
 - [Installation](#installation)
