@@ -6,20 +6,21 @@
 <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&style=for-the-badge">
 </p>
 
-- [Installation](#installation 'Goto installation')
-  - [pip](#pip 'Goto pip')
-  - [pipenv](#pipenv 'Goto pipenv')
-- [Usage](#usage 'Goto usage')
-- [Adding a palette](#adding-a-palette 'Goto adding-a-palette')
-  - [Single](#single 'Goto single')
-  - [Variants](#variants 'Goto variants')
+## Content
+  - [Installation](#installation)
+    - [pip](#pip)
+    - [pipenv](#pipenv)
+  - [Usage](#usage)
+  - [Adding a palette](#adding-a-palette)
+    - [Single](#single)
+    - [Variants](#variants)
 
-|                           |                                        |
-| :-----------------------: | :------------------------------------: |
-|          Normal           |          Catppuccin Macchiato          |
-| ![](examples/normal.png)  | ![](examples/catppuccin-macchiato.png) |
-|          Gruvbox          |                Dracula                 |
-| ![](examples/gruvbox.png) |       ![](examples/dracula.png)        |
+|                                  |                                                            |
+| :------------------------------: | :--------------------------------------------------------: |
+|              Normal              |                    Catppuccin Macchiato                    |
+|  ![normal](examples/normal.png)  | ![catppuccin-macchiato](examples/catppuccin-macchiato.png) |
+|             Gruvbox              |                          Dracula                           |
+| ![gruvbox](examples/gruvbox.png) |              ![dracula](examples/dracula.png)              |
 
 A tool to match the colors of an image to a palette
 
