@@ -103,7 +103,7 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     begin = 0
     end = 1
     size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin=begin, end=end)
+    colorcube = test_palette.calculte_colorcube(begin, end)
 
     assert colorcube.size == 3 * size**3
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
@@ -118,7 +118,7 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     begin = 127
     end = 128
     size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin=begin, end=end)
+    colorcube = test_palette.calculte_colorcube(begin, end)
 
     assert colorcube.size == 3 * size**3
     assert (colorcube[0][0][0] == [0, 0, 0]).all()
@@ -133,7 +133,7 @@ def test_calculate_colorcube(monkeypatch: pytest.MonkeyPatch):
     begin = 254
     end = 255
     size = end - begin + 1
-    colorcube = test_palette.calculte_colorcube(begin=begin, end=end)
+    colorcube = test_palette.calculte_colorcube(begin, end)
 
     assert colorcube.size == 3 * size**3
     assert (colorcube[0][0][0] == [255, 255, 255]).all()

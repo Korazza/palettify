@@ -27,16 +27,16 @@ class Palette:
         colors = []
         with open(self.colors_path) as palette_colors_file:
             for num, _hex in enumerate(palette_colors_file, 1):
-                hex = _hex.rstrip()
-                if not hex.startswith("#") or len(hex) != 7:
+                color_hex = _hex.rstrip()
+                if not color_hex.startswith("#") or len(color_hex) != 7:
                     raise Exception(
-                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Colors must be in format "#000000" (got "{hex}")'
+                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Colors must be in format "#000000" (got "{color_hex}")'
                     )
-                if not hex.removeprefix("#").isalnum():
+                if not color_hex.removeprefix("#").isalnum():
                     raise Exception(
-                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Invalid color "{hex}"'
+                        f'[{self.name}] Error in "{self.colors_path}" at line {num}: Invalid color "{color_hex}"'
                     )
-                colors.append(color.Color(hex=hex))
+                colors.append(color.Color(hex=color_hex))
         self.size = len(colors)
         self.colors: np.ndarray[color.Color] = np.array(colors)
         self.colors_hex: np.ndarray[str] = np.array(
