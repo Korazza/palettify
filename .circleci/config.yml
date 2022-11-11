@@ -11,10 +11,14 @@ jobs:
           command: 'pipenv sync -d'
       - run:
           name: 'Test'
-          command: 'pipenv run pytest --cov=. --cov-report=xml tests/'
+          command: |
+            mkdir test-results
+            pipenv run pytest --junitxml=test-results/junit.xml --cov=. --cov-report=xml tests/
       - run:
           name: 'Coveralls'
           command: 'pipenv run coveralls'
+      - store_test_results:
+          path: test-results
 
 workflows:
   test-workflow:
