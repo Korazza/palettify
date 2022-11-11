@@ -8,10 +8,13 @@ jobs:
       - checkout
       - run:
           name: 'Install dependencies'
-          command: 'pipenv install'
+          command: 'pipenv sync -d'
       - run:
           name: 'Test'
-          command: 'pipenv run pytest tests/'
+          command: 'pipenv run pytest --cov=. --cov-report=xml tests/'
+      - run:
+          name: 'Coveralls'
+          command: 'pipenv run coveralls'
 
 workflows:
   test-workflow:
