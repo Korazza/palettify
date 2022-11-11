@@ -18,11 +18,10 @@ class Palette:
         self.size = 0
         self.colors = np.array([])
         self.colors_rgb = np.array([])
-        self.colors_hex = np.array([])
 
     def load_colors(self):
         colors = []
-        with open(self.colors_path) as palette_colors_file:
+        with open(self.colors_path, "rt") as palette_colors_file:
             for num, _hex in enumerate(palette_colors_file, 1):
                 color_hex = _hex.rstrip()
                 if not color_hex.startswith("#") or len(color_hex) != 7:
@@ -35,17 +34,15 @@ class Palette:
                     )
                 colors.append(color.Color(hex=color_hex))
         self.size = len(colors)
-        self.colors: np.ndarray[color.Color] = np.array(colors)
-        self.colors_rgb: np.ndarray[np.ndarray[int]] = np.array(
-            [color.rgb for color in self.colors]
-        )
+        self.colors: list[color.Color] = colors
+        self.colors_rgb: list[list[int]] = [color.rgb for color in self.colors]
 
     def get_nearest_color(self, color: color.Color) -> color.Color:
         return self.colors[
             np.argmin(
                 np.sqrt(
                     np.sum(
-                        ((self.colors_rgb) - color.rgb) ** 2,
+                        (np.array(self.colors_rgb) - color.rgb) ** 2,
                         axis=1,
                     )
                 )
