@@ -43,7 +43,7 @@ pipenv sync
 ## Usage
 
 ```sh
-python palettify <image path>
+python palettify path/to/image
 ```
 
 ## Adding a palette
