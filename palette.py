@@ -14,9 +14,7 @@ class Palette:
             .replace(config.COLORS_EXTENSION, "")
         )
         self.colors_path = path
-        self.colorcube_path = self.colors_path.replace(
-            config.COLORS_EXTENSION, config.COLORCUBES_EXTENSION
-        )
+        self.colorcube_path = self.colors_path.replace(config.COLORS_EXTENSION, ".npz")
         self.size = 0
         self.colors = np.array([])
         self.colors_rgb = np.array([])

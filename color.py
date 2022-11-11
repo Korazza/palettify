@@ -1,8 +1,6 @@
 from dataclasses import dataclass, field
 import numpy as np
 
-import utils
-
 
 @dataclass
 class Color:
@@ -19,7 +17,9 @@ class Color:
         elif self.hex == "":
             self.hex = f"#{self.rgb[0]:x}{self.rgb[1]:x}{self.rgb[2]:x}"
         else:
-            self.rgb = np.array(utils.hex_to_rgb(self.hex))
+            self.rgb = np.array(
+                [int(self.hex.lstrip("#")[i : i + 2], 16) for i in [0, 2, 4]]
+            )
 
     def __str__(self) -> str:
         return f"<Color {self.hex}>"
