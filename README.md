@@ -6,13 +6,13 @@
 <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&style=for-the-badge">
 </p>
 
-- [Installation](#installation "Goto installation")
-  - [pip](#pip "Goto pip")
-  - [pipenv](#pipenv "Goto pipenv")
-- [Usage](#usage "Goto usage")
-- [Adding a palette](#adding-a-palette "Goto adding-a-palette")
-  - [Single](#single "Goto single")
-  - [Variants](#variants "Goto variants")
+- [Installation](#installation 'Goto installation')
+  - [pip](#pip 'Goto pip')
+  - [pipenv](#pipenv 'Goto pipenv')
+- [Usage](#usage 'Goto usage')
+- [Adding a palette](#adding-a-palette 'Goto adding-a-palette')
+  - [Single](#single 'Goto single')
+  - [Variants](#variants 'Goto variants')
 
 |                           |                                        |
 | :-----------------------: | :------------------------------------: |
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ### pipenv
 
 ```
-pipenv install
+pipenv sync
 ```
 
 ## Usage
@@ -54,6 +54,7 @@ python palettify <image path>
 To add a new palette, simply create a file in `palettes` directory like below
 
 `Rainbow.txt`
+
 ```md
 #ff6b6b
 #ffd93d
@@ -66,6 +67,7 @@ To add a new palette, simply create a file in `palettes` directory like below
 If you have multiple variants of a palette, just create a subfolder under `palettes` with all its variants in it
 
 `Rainbow/Pastel.txt`
+
 ```md
 #ff6b6b
 #ffd93d
