@@ -6,7 +6,7 @@
 <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettify?color=%2365a30d&style=for-the-badge">
 </p>
 
-## Content
+- [palettify](#palettify)
   - [Installation](#installation)
     - [pip](#pip)
     - [pipenv](#pipenv)
