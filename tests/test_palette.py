@@ -40,8 +40,8 @@ def test_palette_load_colors(monkeypatch: pytest.MonkeyPatch):
 
     assert test_palette.size == 2
     assert str(test_palette) == "<Palette test palette (2 colors)>"
-    assert (test_palette.colors_rgb[0] == [0, 0, 0]).all()
-    assert (test_palette.colors_rgb[1] == [255, 255, 255]).all()
+    assert test_palette.colors_rgb[0] == [0, 0, 0]
+    assert test_palette.colors_rgb[1] == [255, 255, 255]
 
 
 def test_palette_get_colorcube(monkeypatch: pytest.MonkeyPatch):

@@ -60,14 +60,6 @@ def test_main_wrong_usage(
     assert out == "Usage: palettify.py <image path>\n"
     assert err == ""
 
-
-def test_main_image_not_exists(
-    monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture
-):
-    monkeypatch.setattr(os, "sep", SEP)
-    monkeypatch.setattr(config, "PALETTES_DIR", TESTS_DIR)
-    monkeypatch.setattr(builtins, "input", lambda _: "1")
-
     with pytest.raises(SystemExit) as e:
         palettify.main([""], palettes_path=TEST_PALETTE_PATH)
     out, err = capfd.readouterr()
@@ -76,12 +68,6 @@ def test_main_image_not_exists(
     assert out == 'Image "" does not exist\n'
     assert err == ""
 
-
-def test_main_wrong_palette_option(
-    monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture
-):
-    monkeypatch.setattr(os, "sep", SEP)
-    monkeypatch.setattr(config, "PALETTES_DIR", TESTS_DIR)
     monkeypatch.setattr(builtins, "input", lambda _: "100")
 
     with pytest.raises(SystemExit) as e:
