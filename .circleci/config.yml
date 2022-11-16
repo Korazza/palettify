@@ -8,12 +8,12 @@ jobs:
       - checkout
       - run:
           name: 'Install dependencies'
-          command: 'pipenv sync -d'
+          command: 'pipenv install .[dev]'
       - run:
           name: 'Test'
           command: |
             mkdir test-results
-            pipenv run pytest --junitxml=test-results/junit.xml --cov --cov-report=xml:cobertura.xml
+            pipenv run pytest --junitxml=test-results/junit.xml --cov-report=xml:cobertura.xml tests/
       - run:
           name: 'Coveralls'
           command: 'pipenv run coveralls'
