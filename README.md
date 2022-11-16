@@ -1,5 +1,6 @@
 <p align="center">
   <img alt="PyPi version" src="https://img.shields.io/pypi/v/palettipy?logo=pypi&style=flat-square">
+  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/palettipy?logo=python&style=flat-square">
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Korazza/palettipy/main?&label=test&logo=circleci&style=flat-square">
   <img alt="Coveralls" src="https://img.shields.io/coveralls/github/Korazza/palettipy?&logo=coveralls&style=flat-square">
   <img alt="Codacy branch grade" src="https://img.shields.io/codacy/grade/0a0cccad8d79414d88671d85ed98da06/main?&logo=codacy&style=flat-square">
