@@ -8,5 +8,5 @@ cobertura*
 .coveralls*
 htmlcov
 *.npz
-!tests/*.npz
+!palettify/tests/*.npz
 output.png
