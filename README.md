@@ -9,7 +9,6 @@
   - [pip](#pip)
   - [pipenv](#pipenv)
 - [Usage](#usage)
-- [Example](#example)
 - [Adding a palette](#adding-a-palette)
   - [Single](#single)
   - [Variants](#variants)
@@ -43,11 +42,6 @@ pipenv sync
 
 ## Usage
 
-```sh
-python palettify path/to/image
-```
-
-## Example
 ```python
 import os
 import sys
