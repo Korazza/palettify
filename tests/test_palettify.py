@@ -1,14 +1,11 @@
-import builtins
 import os
 
-from PIL import Image
 import numpy as np
 import pytest
+from PIL import Image
 
-import config
-import palette
 import palettify
-
+from palettify import config, palette
 
 SEP = "/"
 TESTS_DIR = "tests"
@@ -31,49 +28,3 @@ def test_palettify_image(monkeypatch: pytest.MonkeyPatch):
 
     assert image_output.shape == np.asarray(image).shape
     assert np.isin(test_palette.colors_rgb, image_output).all()
-
-
-def test_main(monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setattr(os, "sep", SEP)
-    monkeypatch.setattr(config, "PALETTES_DIR", TESTS_DIR)
-    monkeypatch.setattr(builtins, "input", lambda _: "1")
-    monkeypatch.setattr(Image.Image, "save", lambda *_: "saved")
-
-    with pytest.raises(SystemExit) as e:
-        palettify.main([TEST_IMAGE_PATH], palettes_path=TEST_PALETTE_PATH)
-    assert e.type == SystemExit
-    assert e.value.code == 0
-
-
-def test_main_wrong_usage(
-    monkeypatch: pytest.MonkeyPatch, capfd: pytest.CaptureFixture
-):
-    monkeypatch.setattr(os, "sep", SEP)
-    monkeypatch.setattr(config, "PALETTES_DIR", TESTS_DIR)
-    monkeypatch.setattr(builtins, "input", lambda _: "1")
-
-    with pytest.raises(SystemExit) as e:
-        palettify.main([], palettes_path=TEST_PALETTE_PATH)
-    out, err = capfd.readouterr()
-    assert e.type == SystemExit
-    assert e.value.code == 1
-    assert out == "Usage: palettify.py <image path>\n"
-    assert err == ""
-
-    with pytest.raises(SystemExit) as e:
-        palettify.main([""], palettes_path=TEST_PALETTE_PATH)
-    out, err = capfd.readouterr()
-    assert e.type == SystemExit
-    assert e.value.code == 1
-    assert out == 'Image "" does not exist\n'
-    assert err == ""
-
-    monkeypatch.setattr(builtins, "input", lambda _: "100")
-
-    with pytest.raises(SystemExit) as e:
-        palettify.main([TEST_IMAGE_PATH], palettes_path=TEST_PALETTE_PATH)
-    out, err = capfd.readouterr()
-    assert e.type == SystemExit
-    assert e.value.code == 1
-    assert out.splitlines()[-1] == "Palette 100 not in range 1-1"
-    assert err == ""

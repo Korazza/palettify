@@ -2,8 +2,8 @@ import os
 
 import pytest
 
-import config
-import palettes_loader
+import palettify.config as config
+import palettify.palettes_loader as palettes_loader
 
 
 SEP = "/"

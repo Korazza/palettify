@@ -1,6 +1,6 @@
 import numpy as np
 
-from color import Color
+from palettify.color import Color
 
 
 def test_color_default():

@@ -3,9 +3,9 @@ import os
 import numpy as np
 import pytest
 
-import color
-import config
-import palette
+import palettify.color as color
+import palettify.config as config
+import palettify.palette as palette
 
 SEP = "/"
 TESTS_DIR = "tests"
