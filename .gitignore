@@ -9,4 +9,6 @@ cobertura*
 htmlcov
 *.npz
 !palettify/tests/*.npz
+*.egg-info/
+*.egg
 output.png
