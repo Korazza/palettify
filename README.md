@@ -13,12 +13,12 @@
   - [Single](#single)
   - [Variants](#variants)
 
-|                                |                                                          |
-| :----------------------------: | :------------------------------------------------------: |
-|             Normal             |                   Catppuccin Macchiato                   |
-|  ![normal](images/normal.png)  | ![catppuccin-macchiato](images/catppuccin-macchiato.png) |
-|            Gruvbox             |                         Dracula                          |
-| ![gruvbox](images/gruvbox.png) |              ![dracula](images/dracula.png)              |
+<p align="center">
+  <img alt="Normal" src="images/normal.png" width="49%">
+  <img alt="Catppuccin Macchiato" src="images/catppuccin-macchiato.png" width="49%">
+  <img alt="Dracula" src="images/dracula.png" width="49%">
+  <img alt="Gruvbox" src="images/gruvbox.png" width="49%">
+</p>
 
 Match the colors of an image to a palette
 
