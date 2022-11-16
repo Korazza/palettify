@@ -13,12 +13,12 @@
   - [Single](#single)
   - [Variants](#variants)
 
-|                                  |                                                            |
-| :------------------------------: | :--------------------------------------------------------: |
-|              Normal              |                    Catppuccin Macchiato                    |
-|  ![normal](examples/normal.png)  | ![catppuccin-macchiato](examples/catppuccin-macchiato.png) |
-|             Gruvbox              |                          Dracula                           |
-| ![gruvbox](examples/gruvbox.png) |              ![dracula](examples/dracula.png)              |
+|                                |                                                          |
+| :----------------------------: | :------------------------------------------------------: |
+|             Normal             |                   Catppuccin Macchiato                   |
+|  ![normal](images/normal.png)  | ![catppuccin-macchiato](images/catppuccin-macchiato.png) |
+|            Gruvbox             |                         Dracula                          |
+| ![gruvbox](images/gruvbox.png) |              ![dracula](images/dracula.png)              |
 
 A tool to match the colors of an image to a palette
 
