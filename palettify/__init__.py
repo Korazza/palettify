@@ -1,7 +1,7 @@
 """
 palettify
 ---------
-A tool to match the colors of an image to a palette
+Match the colors of an image to a palette
 """
 import numpy as np
 from PIL import Image

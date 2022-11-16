@@ -20,7 +20,7 @@
 |            Gruvbox             |                         Dracula                          |
 | ![gruvbox](images/gruvbox.png) |              ![dracula](images/dracula.png)              |
 
-A tool to match the colors of an image to a palette
+Match the colors of an image to a palette
 
 ## Installation
 
