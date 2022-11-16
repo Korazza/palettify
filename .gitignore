@@ -3,6 +3,7 @@ __pycache__
 .pytest_cache
 .tox
 .coverage*
+!.coveragerc
 cobertura*
 .coveralls*
 htmlcov
