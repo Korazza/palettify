@@ -8,7 +8,7 @@
 - [Installation](#installation)
   - [pip](#pip)
   - [pipenv](#pipenv)
-- [Usage](#usage)
+- [Example](#example)
 - [Adding a palette](#adding-a-palette)
   - [Single](#single)
   - [Variants](#variants)
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 pipenv sync
 ```
 
-## Usage
+## Example
 
 ```python
 import os
@@ -88,6 +88,10 @@ def main(args: list[str], palettes_path: str = "palettes"):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
+```
+
+```sh
+python example.py path/to/image "Catppuccin Mocha"
 ```
 
 ## Adding a palette
