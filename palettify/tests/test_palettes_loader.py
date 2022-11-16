@@ -7,7 +7,7 @@ import palettify.palettes_loader as palettes_loader
 
 
 SEP = "/"
-TESTS_DIR = "tests"
+TESTS_DIR = "palettify/tests"
 
 
 def test_palettes_loader(monkeypatch: pytest.MonkeyPatch):

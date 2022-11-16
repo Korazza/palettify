@@ -8,7 +8,7 @@ import palettify.config as config
 import palettify.palette as palette
 
 SEP = "/"
-TESTS_DIR = "tests"
+TESTS_DIR = "palettify/tests"
 
 TEST_PALETTE_COLORS_PATH = f"{TESTS_DIR}/test_palette.txt"
 TEST_PALETTE_COLORCUBE_PATH = f"{TESTS_DIR}/test_palette.npz"
