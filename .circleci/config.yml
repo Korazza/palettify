@@ -21,7 +21,7 @@ jobs:
             python -m pytest --junitxml=test-results/junit.xml --cov --cov-report=xml:cobertura.xml
       - run:
           name: 'Coveralls'
-          command: 'python -m run coveralls'
+          command: 'python -m coveralls'
       - run:
           name: 'Codacy Coverage Report'
           command: 'bash <(curl -Ls https://coverage.codacy.com/get.sh)'
