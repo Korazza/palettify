@@ -4,8 +4,8 @@ import time
 
 from PIL import Image
 
-from palettify import palettes_loader, palettify_image
-from palettify.palette import Palette
+from palettipy import palettes_loader, palettipy_image
+from palettipy.palette import Palette
 
 
 def main(args: list[str], palettes_path: str = "palettes"):
@@ -34,7 +34,7 @@ def main(args: list[str], palettes_path: str = "palettes"):
     palette: Palette = list(filter(lambda p: (p.name == palette_name), palettes))[0]
     image = Image.open(image_path)
 
-    image_result = Image.fromarray(palettify_image(palette, image))
+    image_result = Image.fromarray(palettipy_image(palette, image))
     image_result.save("output.png")
 
     palette.log(f"Done in {(time.time() - start):.3f}s")

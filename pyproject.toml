@@ -1,5 +1,5 @@
 [project]
-name = "palettify"
+name = "palettipy"
 version = "0.0.1"
 description = "Match the colors of an image to a palette"
 readme = "README.md"
@@ -46,8 +46,8 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["palettify*", "palettes*"]
-exclude = ["palettify.tests*"]
+include = ["palettipy*", "palettes*"]
+exclude = ["palettipy.tests*"]
 
 [tool.setuptools.package-data]
 palettes = ["**/*.txt", "**/*.npz"]

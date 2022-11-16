@@ -1,5 +1,5 @@
 """
-palettify
+palettipy
 ---------
 Match the colors of an image to a palette
 """
@@ -9,7 +9,7 @@ from PIL import Image
 from .palette import Palette
 
 
-def palettify_image(palette: Palette, image: Image.Image) -> np.ndarray:
+def palettipy_image(palette: Palette, image: Image.Image) -> np.ndarray:
     """Get an image processed with the `palette` colors
 
     Parameters

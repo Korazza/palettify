@@ -3,12 +3,12 @@ import os
 import numpy as np
 import pytest
 
-import palettify.color as color
-import palettify.config as config
-import palettify.palette as palette
+import palettipy.color as color
+import palettipy.config as config
+import palettipy.palette as palette
 
 SEP = "/"
-TESTS_DIR = "palettify/tests"
+TESTS_DIR = "palettipy/tests"
 
 TEST_PALETTE_COLORS_PATH = f"{TESTS_DIR}/test_palette.txt"
 TEST_PALETTE_COLORCUBE_PATH = f"{TESTS_DIR}/test_palette.npz"

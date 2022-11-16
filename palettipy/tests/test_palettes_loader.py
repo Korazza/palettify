@@ -2,12 +2,12 @@ import os
 
 import pytest
 
-import palettify.config as config
-import palettify.palettes_loader as palettes_loader
+import palettipy.config as config
+import palettipy.palettes_loader as palettes_loader
 
 
 SEP = "/"
-TESTS_DIR = "palettify/tests"
+TESTS_DIR = "palettipy/tests"
 
 
 def test_palettes_loader(monkeypatch: pytest.MonkeyPatch):

@@ -10,7 +10,7 @@ cobertura*
 .coveralls*
 htmlcov
 *.npz
-!palettify/tests/*.npz
+!palettipy/tests/*.npz
 *.egg-info/
 *.egg
 output.png

@@ -1,9 +1,9 @@
 # .coveragerc to control coverage.py
 [run]
 source =
-    palettify
+    palettipy
 omit =
-    palettify/tests/*
+    palettipy/tests/*
 
 [report]
 exclude_lines =
