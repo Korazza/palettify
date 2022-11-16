@@ -42,6 +42,8 @@ pipenv sync
 
 ## Example
 
+`example.py`
+
 ```python
 import os
 import sys
